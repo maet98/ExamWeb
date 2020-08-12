@@ -1,0 +1,40 @@
+.bar{
+    color:white;
+    background-color:black;
+    width:100%;
+}
+.buttonGroup {
+    display:flex;
+}
+
+.form {
+    text-align: left;
+    border: 2px solid  #4ba1f7; 
+    padding: 8px;
+}
+
+.title{
+    background-color:#4ba1f7;
+    text-align: left;
+    color:white;
+    padding: 8px;
+    margin-bottom: 0px;
+}
+
+button {
+    border-radius: 8px;
+}
+
+.b1 {
+    background-color: #b4d82e;
+    color:white;
+}
+
+.b2 {
+    background-color:#0000FF ;
+    color:white;
+}
+.b3 {
+    background-color: #FF0000;
+    color:white;
+}

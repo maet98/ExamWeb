@@ -1,0 +1,32 @@
+Body {
+    background-color:#338dff ;
+}
+
+.container {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color:white;
+    color:black;
+    width: 500px;
+    height:500px;
+    margin-top: 40px;
+    border-radius: 16px;
+}
+
+.container * {
+    flex:0 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.item {
+    display:flex;
+    flex-direction: row;
+}
+
+.form {
+    padding-left: 40px;
+}

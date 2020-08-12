@@ -1,0 +1,18 @@
+.main {
+    display: flex;
+    justify-content:right;
+    flex-direction: column;
+}
+
+
+.table {
+    min-width: 650;
+}
+
+.Add {
+    color: white;
+    border-radius: 8px;
+    padding:8px;
+    background-color:  #04b619  ;
+    justify-content: left;
+}

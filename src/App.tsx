@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
+import fire from "./config/fire"
+import Login from "./Layout/login"
+import Home from "./Layout/Home"
+import CircularProgress from '@material-ui/core/CircularProgress';
 import './App.css';
 
+
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const[user,setUser] = React.useState();
+    const[isLoading,setIsLoading]= React.useState(false);
+
+    React.useEffect(() => {
+        setIsLoading(true);
+        authListener();
+    },[]);
+
+    const authListener = () => {
+        fire.auth().onAuthStateChanged((user) => {
+            console.log(user)
+            if(user) {
+                setUser(user);
+                localStorage.setItem('user', user.uid);
+            } else {
+                setUser(null);
+            }
+            setIsLoading(false);
+        })
+    }
+    
+    return (
+        <div className="App">
+        {
+            user? <Home/>: <Login/>
+        }
+        </div>
+    );
 }
 
 export default App;
