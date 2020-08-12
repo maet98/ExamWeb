@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import fire from '../config/fire';
 import classes from "./login.module.css";
 import {TextField, Checkbox, Button} from '@material-ui/core';
@@ -23,13 +23,13 @@ const Login = () => {
     const login = (e:any) => {
         console.log(state);
         e.preventDefault();
-        fire.auth().signInWithEmailAndPassword(state.email, state.password).then((u)=>{
+        fire.auth().signInWithEmailAndPassword(state.email, state.password).then((_)=>{
         }).catch((error) => {
             console.log(error);
       });
    }
 
-    const signup = (e:any) =>{
+    /*const signup = (e:any) =>{
         e.preventDefault();
         fire.auth().createUserWithEmailAndPassword(state.email, state.password).then((u)=>{
         }).then((u)=>{console.log(u)})
@@ -37,6 +37,7 @@ const Login = () => {
             console.log(error);
           })
     }
+    */
 
     return (
         <div className={classes.container}>
@@ -50,7 +51,7 @@ const Login = () => {
                     <Checkbox checked={checked} onChange={() => setChecked(!checked)} color="primary"/>
                     <p><strong>Remember Me</strong></p>
                 </div>
-                <Button color="primary" variant="contained">Submit</Button>
+                <Button color="primary" variant="contained" onClick={login}>Submit</Button>
                 <p>Forgot password?</p>
             </div>
         </div>

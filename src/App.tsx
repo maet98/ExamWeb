@@ -2,17 +2,14 @@ import React from 'react';
 import fire from "./config/fire"
 import Login from "./Layout/login"
 import Home from "./Layout/Home"
-import CircularProgress from '@material-ui/core/CircularProgress';
 import './App.css';
 
 
 
 function App() {
     const[user,setUser] = React.useState();
-    const[isLoading,setIsLoading]= React.useState(false);
 
     React.useEffect(() => {
-        setIsLoading(true);
         authListener();
     },[]);
 
@@ -25,7 +22,6 @@ function App() {
             } else {
                 setUser(null);
             }
-            setIsLoading(false);
         })
     }
     

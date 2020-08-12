@@ -5,7 +5,7 @@ import ContactTable from "../Components/contactTable";
 import fire from "../config/fire";
 import Contact from "../schema/Contact";
 
-const ini: Contact[] = new Array();
+const ini: Contact[] = [];
 const db = fire.database();
 const ini2: Contact = {first_name:"", last_name:"",email:"",mobile:""}; 
 
@@ -19,7 +19,7 @@ const Home = () => {
     },[])
 
     const refresh = () => {
-        var List: Contact[] = new Array();
+        var List: Contact[] = [];
         db.ref('contacts/').on("value", (snap) => {
             snap.forEach( data=> {
                 if(data){
@@ -30,11 +30,6 @@ const Home = () => {
             });
             setList(List);
         })
-    }
-
-    const reset = (event: any) => {
-        event.preventDefault();
-        setSelected(ini2);
     }
 
     const deleteMe = (id: string,index:number) => {
